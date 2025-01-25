@@ -7,7 +7,11 @@ void DisplayPrompt(){
 
 Console.WriteLine("Welcome To Guessing Game!!");
 
-Console.Write("Guess the Secret Number: ");
+Console.WriteLine("Which Number is the Secret Number? ");
+Console.WriteLine("1. 24 \n2. 57 \n3. 42 \n4. 98 ");
+
+
+Console.Write("Pick a number 1-4: ");
 userChoice = int.Parse(Console.ReadLine());
 
 // Console.Write("You Guessed: ");
@@ -17,7 +21,7 @@ userChoice = int.Parse(Console.ReadLine());
 
 DisplayPrompt();
 
-if (secretNumber == userChoice)
+if (3 == userChoice)
 {
   Console.WriteLine("You Guessed The Secret Number!!");
 } else {
