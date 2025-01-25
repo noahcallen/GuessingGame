@@ -37,4 +37,13 @@ if (secretNumber == userChoice)
 }//close if else
 
 } while (guessCount != 0 || userChoice == secretNumber);
-Console.WriteLine("You ran out of guesses!!");
+
+if (guessCount == 0)
+{
+  Console.WriteLine("You ran out of guesses :(");
+
+} else {
+  
+  Console.WriteLine("Congrats! You Win!");
+
+}//close if
