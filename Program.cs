@@ -1,17 +1,17 @@
 ﻿using System;
 
-int guessCount = 0;
+Random random= new Random();
+int randomNumber = random.Next(1, 100);
+
+int guessCount = 10;
 int userChoice;
-int secretNumber = 42;
+int secretNumber = randomNumber;
 
 Console.WriteLine("Welcome To Guessing Game!!");
 
 void DisplayPrompt(){
 
-Console.WriteLine("Which Number is the Secret Number? ");
-Console.WriteLine("1. 24 \n2. 57 \n3. 42 \n4. 98 ");
-
-Console.Write($"Pick a number 1-4 (Guesses: {guessCount}): ");
+Console.Write($"Guess the Secret Number (Guesses Left: {guessCount}): ");
 userChoice = int.Parse(Console.ReadLine());
 
 };// close Display Prompt 
@@ -19,13 +19,22 @@ userChoice = int.Parse(Console.ReadLine());
 do {
 DisplayPrompt();
 
-if (3 == userChoice)
+if (secretNumber == userChoice)
 {
-  Console.WriteLine($"You Guessed The Secret Number in {guessCount} guesses!!");
-} else {
-  Console.WriteLine("Wrong!");
-  guessCount = guessCount + 1;
+  Console.WriteLine($"You Guessed The Secret Number with {guessCount} guesses left!!");
+  break;
 
-} //close if else
+} else if (userChoice < secretNumber) {
 
-} while (userChoice != 3);
+  Console.WriteLine("You guessed Lower than the Secret Number try guessing higher!");
+  guessCount = guessCount - 1;
+
+} else if (userChoice > secretNumber){
+
+  Console.WriteLine("You guessed Higher than the Secret Number try guessing lower!");
+  guessCount = guessCount - 1;
+
+}//close if else
+
+} while (guessCount != 0 || userChoice == secretNumber);
+Console.WriteLine("You ran out of guesses!!");
